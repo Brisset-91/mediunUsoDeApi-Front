@@ -53,6 +53,14 @@ $(document).ready(function(){
         .then(response => {
           location.reload()
         })
+        .then((response) => {
+          if(response.ok == false){
+              alert('Session expired')
+              location.replace('login.html')
+              return
+            }
+          location.replace("/index.html")
+        })
         .catch(error => {
           console.error('GET POSTS ERROR: ', error)
         })

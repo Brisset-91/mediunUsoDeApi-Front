@@ -2,7 +2,7 @@ $(()=>{
     let idPost = location.search.slice(8)
     $.ajax({
         method:'GET',
-        url: `https://medium-7cfcc-default-rtdb.firebaseio.com/${idPost}.json`
+        url: `http://localhost:8080/posts/${idPost}`
     }).done((resp)=>{
         console.log(resp)
         let temp1 = ''
