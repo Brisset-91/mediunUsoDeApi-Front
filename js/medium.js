@@ -7,7 +7,7 @@ $(document).ready(function(){
   //----------------------Función para crear posts con el método post ---------------------------------
   btnSendPost.addEventListener('click', () => {
     if(token == null){
-      alert('You need to login to post')
+      alert('You need to login')
       location.replace('login.html')
       return
     }
@@ -81,7 +81,7 @@ $(document).ready(function(){
 fetch('http://localhost:8080/posts', {
   method: 'GET',
 })
-  .then(response.ok => response.json())
+  .then(response => response.json())
 
   .then(json => {
     const posts = json.posts.reverse()
