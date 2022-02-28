@@ -1,6 +1,9 @@
 //////////Obtener un posts con jq GET
-const idPost = location.search.slice(8)
+const idPost = location.search.slice(1)
 console.log(idPost)
+const token = localStorage.getItem('token')
+console.log(token)
+
 
 $(document).ready(function(){
 //----------------------Traer el post que seleccioné con el id--------------------------
@@ -28,6 +31,7 @@ const updateUserFetch =  (objPost, idPost) => {
     fetch(`http://localhost:8080/posts/${idPost}`, {
         method: 'PATCH',
             headers: {
+                Authorization: `${token}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(objPost)
@@ -89,6 +93,7 @@ const updateUserFetch =  (objPost, idPost) => {
         fetch(`http://localhost:8080/posts/${idPost}`, {
             method: 'DELETE',
                 headers: {
+                    Authorization: `${token}`,
                     'Content-Type': 'application/json'
                 },
                 // body: JSON.stringify(objPost)
