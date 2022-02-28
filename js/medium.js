@@ -1,3 +1,4 @@
+const token = localStorage.getItem('token')
 
 $(document).ready(function(){
 //----------------------Método posts para crear ---------------------------------
@@ -5,6 +6,11 @@ $(document).ready(function(){
 
   //----------------------Función para crear posts con el método post ---------------------------------
   btnSendPost.addEventListener('click', () => {
+    if(token == null){
+      alert('You need to login')
+      location.replace('login.html')
+      return
+    }
     //console.log('click')
     let title = document.querySelector('#title').value
     let imgPerfil = document.querySelector('#imgPerfil').value
@@ -50,6 +56,14 @@ $(document).ready(function(){
         })
         .then(response => {
           location.reload()
+        })
+        .then((resp) => {
+          if(resp.ok == false){
+              alert('Session expired')
+              location.replace('login.html')
+              return
+            }
+          location.replace("/index.html")
         })
         .catch(error => {
           console.error('GET POSTS ERROR: ', error)
