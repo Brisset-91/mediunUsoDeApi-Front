@@ -1,5 +1,5 @@
 //////////Obtener un posts con jq GET
-const idPost = location.search.slice(8)
+const idPost = location.search.slice(1)
 console.log(idPost)
 
 $(document).ready(function(){
