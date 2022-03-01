@@ -94,7 +94,7 @@ fetch('http://localhost:8080/posts', {
               <img src="${post.imgPerfil}" class= "user_img card-img-top rounded-circle border 0" alt="">
               <h4 class="textOne">${post.author}</h4>
             </div>
-              <h5 class="card-title"><a href="interiorPost.html?idpost=${post.post}" class="text-decoration-none fs-3 link-dark" >${post.title}</a></h5>
+              <h5 class="card-title"><a href="interiorPost?${post._id}" class="text-decoration-none fs-3 link-dark" >${post.title}</a></h5>
                 <a href="http://127.0.0.1:5503/interiorPost.html"></a>
                 <p class="card-text d-none d-md-block colorAbs">${post.abstract}</p>
               <div class="d-flex ">
